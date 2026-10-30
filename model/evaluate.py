@@ -92,7 +92,7 @@ def write_report(results: dict, demo_rows: list[tuple[str, np.ndarray]]) -> None
     lines = [
         "# 模型评估报告",
         "",
-        "数据集：ChnSentiCorp 测试集（训练全程不接触）｜目标：准确率 93%+",
+        "数据集：ChnSentiCorp 酒店评论子集测试集（训练全程不接触）｜评估口径：LSTM 与 BERT 模型对比（准确率不设外部分数线）",
         "",
         "## 一、总体对比",
         "",
