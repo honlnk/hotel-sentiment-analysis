@@ -1,5 +1,6 @@
 # 模型侧依赖（在 model/.venv —— Python 3.12 虚拟环境中安装，勿用系统 Python 3.14）
 tensorflow==2.19.*        # 深度学习框架（题目硬性要求）；固定 2.19 与 Metal 插件兼容性最稳
+tf-keras==2.19.*         # Keras 2 兼容包：transformers 的 TF 模型暂不支持 Keras 3，必须安装（与 TF 2.19 配套）
 transformers>=4.50,<5     # 加载 BERT 中文预训练模型与 tokenizer
 pandas>=2.0               # 数据读取与清洗
 scikit-learn>=1.4         # 数据切分、混淆矩阵等评估指标
