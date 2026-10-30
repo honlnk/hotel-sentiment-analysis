@@ -18,7 +18,7 @@ hotel-sentiment-analysis/
 │   ├── data/             #   数据集（脚本自动下载 / 生成）
 │   ├── saved/            #   训练产物：可加载的模型文件
 │   └── reports/          #   评估报告与图表
-└── web/                  # Web 演示系统（前端 + 预测接口）
+└── web/                  # Web 演示系统（Vue3 前端 + FastAPI 接口，单服务部署）
 ```
 
 ## 模型侧运行顺序
