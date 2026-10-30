@@ -1,0 +1,31 @@
+{
+  "model": "BERT（bert-base-chinese 微调）",
+  "epochs": 3,
+  "learning_rate": 2e-05,
+  "batch_size": 16,
+  "max_length": 128,
+  "history": {
+    "loss": [
+      0.3044,
+      0.1692,
+      0.1028
+    ],
+    "accuracy": [
+      0.8665,
+      0.9363,
+      0.964
+    ],
+    "val_loss": [
+      0.229,
+      0.2026,
+      0.3091
+    ],
+    "val_accuracy": [
+      0.9035,
+      0.9148,
+      0.9003
+    ]
+  },
+  "test_accuracy": 0.877,
+  "test_loss": 0.3768
+}
