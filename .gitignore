@@ -3,3 +3,9 @@
 
 # Web 侧依赖（后续开发时生效）
 node_modules/
+
+# Python 字节码
+__pycache__/
+
+# ZCode 会话产物
+.zcode/
