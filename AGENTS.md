@@ -52,14 +52,31 @@ hotel-sentiment-analysis/
 
 ```bash
 cd model
+uv venv --python 3.12 .venv                  # 首次才需要：创建 Python 3.12 虚拟环境（未装 uv 时可改用 python3.12 -m venv）
 source .venv/bin/activate
-uv pip install -r ../web/requirements.txt   # 首次才需要
+uv pip install -r requirements.txt -r ../web/requirements.txt   # 首次才需要
+uv pip install -p .venv/bin/python tensorflow-metal             # 可选：Apple Silicon 上启用 GPU 加速
 
 cd ../web
-uvicorn main:app --port 8000                # 首次启动加载模型约 10 秒
+uvicorn main:app --port 8000                 # 首次启动加载模型约 10 秒
 ```
 
-浏览器打开 `http://127.0.0.1:8000`。注意：`model/saved/` 里是训练好的模型文件，缺失则系统无法预测，重新生成需重走训练流程（LSTM 约 10 分钟、BERT 约 30 分钟）。
+浏览器打开 `http://127.0.0.1:8000`。
+
+### 重新训练须知（开始任何训练前必须执行）
+
+`model/saved/` 里是训练好的模型文件：**文件完好时，演示、论文、答辩都不需要重新训练**，不要主动建议主人重训。只有模型文件缺失或损坏时才考虑重训。
+
+即便如此，执行 `train_lstm.py` 或 `train_bert.py` 之前，必须先逐项检查电脑配置，**任何一项不满足就明确拒绝训练并向主人解释原因**——本项目是在 MacBook（Apple M4，16 GB 统一内存）上验证的，配置不足时训练会内存耗尽或耗时数小时：
+
+| 检查项 | 要求 | 检查方法 |
+|---|---|---|
+| 芯片 | Apple Silicon（M 系列） | 终端执行 `uname -m`，输出 `arm64` 才通过 |
+| 内存 | ≥ 16 GB | `sysctl -n hw.memsize` 结果 ≥ 17179869184（即 16 GiB） |
+| 磁盘剩余空间 | ≥ 5 GB（虚拟环境、数据与模型权重） | `df -h` |
+| 环境 | `model/.venv` 已按 `model/requirements.txt` 装好 | 见上节运行步骤 |
+
+配置不足时的正确做法：告知主人，交付包中的模型文件已可直接支撑演示和论文数据，无需重训；如确需重训（例如模型文件损坏），换一台满足上述配置的电脑，把整个项目目录原样拷贝过去再操作。
 
 ## 五、接下来要做的事与重要边界
 
