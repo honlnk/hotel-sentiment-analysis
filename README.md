@@ -2,13 +2,11 @@
 
 中文酒店评论情感二分类（好评 / 差评）：TensorFlow + ChnSentiCorp 数据集 + BERT 微调，配套 Web 演示系统。
 
-详细需求见 [docs/需求文档.md](docs/需求文档.md)。
-
 ## 目录结构
 
 ```
 hotel-sentiment-analysis/
-├── docs/                 # 需求文档
+├── docs/                 # 项目文档
 ├── model/                # ★ 模型侧：数据、训练、评估（Python 3.12 独立虚拟环境）
 │   ├── requirements.txt  #   Python 依赖清单
 │   ├── prepare_data.py   #   ① 下载 ChnSentiCorp，清洗并切分 train / test
