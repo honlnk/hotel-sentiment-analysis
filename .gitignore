@@ -1,0 +1,5 @@
+# macOS
+.DS_Store
+
+# Web 侧依赖（后续开发时生效）
+node_modules/
